@@ -1,10 +1,12 @@
 FROM prairielearn/workspace-jupyterlab-python:latest
 
 ENV PATH="/home/jovyan/.opencode/bin:${PATH}"
+ENV XDG_CACHE_HOME="/tmp/opencode-cache"
 
 USER root
 
-RUN HOME=/home/jovyan curl -fsSL https://opencode.ai/install | bash
+RUN export HOME=/home/jovyan && curl -fsSL https://opencode.ai/install | bash
+RUN mkdir -p /tmp/opencode-cache && chmod 1777 /tmp/opencode-cache
 
 RUN pip install --no-cache-dir jupyter-ai
 
