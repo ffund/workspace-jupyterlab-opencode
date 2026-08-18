@@ -8,6 +8,4 @@ RUN pip install --no-cache-dir jupyter-ai
 
 COPY opencode.json /home/jovyan/.config/opencode/opencode.json
 
-RUN chown -R jovyan:jovyan /home/jovyan/.config/opencode
-
 USER jovyan
